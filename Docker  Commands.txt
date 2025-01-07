@@ -1,0 +1,37 @@
+# Navigate to the project folder
+# Description: Change directory to your Spring Boot project folder where Dockerfile and docker-compose.yml are located.
+cd /path/to/your/project
+
+# Build the JAR file
+# Description: Use Maven to compile and package your Spring Boot application into a JAR file.
+mvn clean install
+
+# Build the Docker image
+# Description: Create a Docker image for your Spring Boot application using the Dockerfile in the current folder.
+docker build -t springboot-app .
+
+# Start the containers
+# Description: Use docker-compose to start both the Spring Boot app and PostgreSQL containers in detached mode.
+docker-compose up -d
+
+# Check running containers
+# Description: List all running containers to ensure Spring Boot and PostgreSQL containers are active.
+docker ps
+
+# Check logs for the Spring Boot app
+# Description: View the logs of the Spring Boot container to verify it started correctly.
+docker logs springboot-app
+
+# Access the application
+# Description: Open a browser or API client to test the Spring Boot app (default: http://localhost:8080).
+# Spring Boot: http://localhost:8080
+# PostgreSQL: localhost:5432 (connect using database tools)
+
+# Stop and remove containers
+# Description: Stop all running containers and clean up resources (network, volumes, etc.).
+docker-compose down
+____________________________________________________________
+
+Replace /path/to/your/project with the actual path to your Spring Boot project.
+Make sure docker-compose.yml and Dockerfile are correctly set up with required configurations.
+Use docker logs or docker ps to debug if something doesn't work.
